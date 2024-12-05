@@ -9,7 +9,7 @@ def calculate_final_amount(principal, years, interest_rate):
 try:
     a = float(input("Введите сумму вклада в рублях (например, 1000): "))
     years = int(input("Введите срок вклада в годах (например, 5): "))
-    interest_rate = 0.10  # 10% годовых
+    interest_rate = 0.25  # 25% годовых
 
     if a < 0 or years < 0:
         print("Сумма вклада и срок должны быть неотрицательными.")
