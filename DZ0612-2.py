@@ -33,6 +33,7 @@ class Store:
 store1 = Store("Табрис", "Улица Ленина, 7а")
 store1.add_item("яблоки голден", 135)
 store1.add_item("бананы", 150)
+store1.add_item( ("бананы", 150)
 
 store2 = Store("Табрис-2", "Проспект Мира, 44")
 store2.add_item("молоко", 97)
