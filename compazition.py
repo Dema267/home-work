@@ -1,4 +1,4 @@
-#Создайте базовый класс `Animal`, который будет содержать общие атрибуты (например, `name`, `age`)
+#Реализуйте наследование, создав подклассы `Bird`, `Mammal`, и `Reptile`, которые наследуют от класса `Animal`.
 
 class Animal:
     def __init__(self, name, age):
@@ -11,27 +11,54 @@ class Animal:
     def eat(self, food):
         print(f"{self.name} кушает {food}.")
 
+class Bird(Animal):
+    def __init__(self, name, age, wing_span):
+        super().__init__(name, age)
+        self.wing_span = wing_span  # Специфический атрибут для птиц
+
+    def make_sound(self):
+        return "Чик-чирик!"
+
+    def fly(self):
+        print(f"{self.name} летит с размахом крульев {self.wing_span} метров.")
+
+class Mammal(Animal):
+    def __init__(self, name, age, fur_color):
+        super().__init__(name, age)
+        self.fur_color = fur_color  # Специфический атрибут для млекопитающих
+
+    def make_sound(self):
+        return "рычание"
+
+    def groom(self):
+        print(f"{self.name} ухаживает за своей {self.fur_color} шерстью.")
+
+class Reptile(Animal):
+    def __init__(self, name, age, scale_color):
+        super().__init__(name, age)
+        self.scale_color = scale_color  # Специфический атрибут для рептилий
+
+    def make_sound(self):
+        return "шипит"
+
+    def bask(self):
+        print(f"{self.name} греется на солнце.")
+
 # Пример использования
 if __name__ == "__main__":
-    # Создаем экземпляр Animal (нельзя, так как это абстрактный класс)
-    # animal = Animal("Generic Animal", 5)  # Это вызовет ошибку
-
-    # Создание подкласса
-    class Dog(Animal):
-        def make_sound(self):
-            return "Гав"
-
-    class Cat(Animal):
-        def make_sound(self):
-            return "Мяу"
-
-    # Создаем экземпляры подклассов
-    dog = Dog("Тай", 3)
-    cat = Cat("Линкольн", 2)
+    parrot = Bird("Поли", 2, 0.5)
+    lion = Mammal("Симба", 5, "песочной")
+    snake = Reptile("Слизерен", 3, "черная")
 
     # Используем методы
-    print(f"{dog.name} сказала: {dog.make_sound()}")
-    dog.eat("мясные консервы")
+    print(f"{parrot.name} сказал: {parrot.make_sound()}")
+    parrot.eat("семена")
+    parrot.fly()
 
-    print(f"{cat.name} сказал: {cat.make_sound()}")
-    cat.eat("корм феликс")
+    print(f"{lion.name} сказал: {lion.make_sound()}")
+    lion.eat("антилопу")
+    lion.groom()
+
+    print(f"{snake.name} сказала: {snake.make_sound()}")
+    snake.eat("Гарри Поттера")
+    snake.bask()
