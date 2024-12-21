@@ -1,64 +1,23 @@
-#Реализуйте наследование, создав подклассы `Bird`, `Mammal`, и `Reptile`, которые наследуют от класса `Animal`.
+#Продемонстрируйте полиморфизм
 
-class Animal:
-    def __init__(self, name, age):
-        self.name = name
-        self.age = age
-
+class Animal():
     def make_sound(self):
-        raise NotImplementedError("Subclasses must implement this method")
+        pass
 
-    def eat(self, food):
-        print(f"{self.name} кушает {food}.")
-
-class Bird(Animal):
-    def __init__(self, name, age, wing_span):
-        super().__init__(name, age)
-        self.wing_span = wing_span  # Специфический атрибут для птиц
-
+class Dog(Animal):
     def make_sound(self):
-        return "Чик-чирик!"
+        print("Уф!...Ну что-за дичь пошла бестолковая!Я пол дня за ней бегал, чтобы сфотографировать.")
 
-    def fly(self):
-        print(f"{self.name} летит с размахом крульев {self.wing_span} метров.")
-
-class Mammal(Animal):
-    def __init__(self, name, age, fur_color):
-        super().__init__(name, age)
-        self.fur_color = fur_color  # Специфический атрибут для млекопитающих
-
+class Cat(Animal):
     def make_sound(self):
-        return "рычание"
+        print("Неправильно ты, дядя Федор бутерброд ешь.")
 
-    def groom(self):
-        print(f"{self.name} ухаживает за своей {self.fur_color} шерстью.")
-
-class Reptile(Animal):
-    def __init__(self, name, age, scale_color):
-        super().__init__(name, age)
-        self.scale_color = scale_color  # Специфический атрибут для рептилий
-
+class Cow(Animal):
     def make_sound(self):
-        return "шипит"
+        print("Если бы я поумнее была, я б не молоко давала, а воду газированную!")
 
-    def bask(self):
-        print(f"{self.name} греется на солнце.")
 
-# Пример использования
-if __name__ == "__main__":
-    parrot = Bird("Поли", 2, 0.5)
-    lion = Mammal("Симба", 5, "песочной")
-    snake = Reptile("Слизерен", 3, "черная")
+animals = [Dog(), Cat(), Cow()]
 
-    # Используем методы
-    print(f"{parrot.name} сказал: {parrot.make_sound()}")
-    parrot.eat("семена")
-    parrot.fly()
-
-    print(f"{lion.name} сказал: {lion.make_sound()}")
-    lion.eat("антилопу")
-    lion.groom()
-
-    print(f"{snake.name} сказала: {snake.make_sound()}")
-    snake.eat("Гарри Поттера")
-    snake.bask()
+for animal in animals:
+    animal.make_sound()
